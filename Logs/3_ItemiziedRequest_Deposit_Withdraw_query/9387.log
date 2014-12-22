@@ -1,0 +1,7 @@
+2014-10-13 12:49:54,478 INFO Log File for Server for bank JP
+2014-10-13 12:49:54,484 INFO Middle Server
+2014-10-13 12:49:54,513 INFO Account was not there.. So initializing 
+2014-10-13 12:49:54,517 INFO Current Request  JP.1.1
+2014-10-13 12:49:54,518 INFO Depositing for accountno = 1 balance = 250
+2014-10-13 12:49:54,551 INFO Current Request  JP.1.2
+2014-10-13 12:49:54,551 INFO Withdrawing for accountno = 1 balance = 150

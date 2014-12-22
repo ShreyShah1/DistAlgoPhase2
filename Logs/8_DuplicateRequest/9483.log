@@ -1,0 +1,13 @@
+2014-10-13 12:54:12,070 INFO Log File for client no 1
+2014-10-13 12:54:12,080 INFO Sending Request Packet JP 1 Deposit 250 1
+2014-10-13 12:54:12,080 INFO Sending Update request to head
+2014-10-13 12:54:12,133 INFO Received Response  Request = JP.1.1 Account No = 1 Outcome = Processed New_Balance = 250
+2014-10-13 12:54:12,134 INFO Sending Request Packet JP 1 Withdraw 150 2
+2014-10-13 12:54:12,134 INFO Sending Update request to head
+2014-10-13 12:54:12,140 INFO Received Response  Request = JP.1.2 Account No = 1 Outcome = Processed New_Balance = 100
+2014-10-13 12:54:12,140 INFO Sending Request Packet JP 1 Withdraw 5000 3
+2014-10-13 12:54:12,140 INFO Sending Update request to head
+2014-10-13 12:54:12,146 INFO Received Response  Request = JP.1.3 Account No = 1 Outcome = Insufficient Funds New_Balance = 100
+2014-10-13 12:54:12,147 INFO Sending Request Packet JP 1 Deposit 250 1
+2014-10-13 12:54:12,147 INFO Sending Update request to head
+2014-10-13 12:54:12,152 INFO Received Response  Request = JP.1.1 Account No = 1 Outcome = Processed New_Balance = 250

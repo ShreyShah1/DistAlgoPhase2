@@ -1,0 +1,17 @@
+2014-10-13 16:03:06,037 INFO Log File for Server for bank JP
+2014-10-13 16:03:06,042 INFO Middle Server
+2014-10-13 16:03:06,058 INFO Account was not there.. So initializing 
+2014-10-13 16:03:06,058 INFO Current Request  JP.1.101
+2014-10-13 16:03:06,059 INFO Insufficient Funds for request_Id JP.1.101
+2014-10-13 16:03:06,088 INFO Account was not there.. So initializing 
+2014-10-13 16:03:06,091 INFO Current Request  JP.1.102
+2014-10-13 16:03:06,091 INFO Insufficient Funds for request_Id JP.1.102
+2014-10-13 16:03:06,108 INFO Account was not there.. So initializing 
+2014-10-13 16:03:06,109 INFO Current Request  JP.1.103
+2014-10-13 16:03:06,109 INFO Insufficient Funds for request_Id JP.1.103
+2014-10-13 16:03:06,126 INFO Account was not there.. So initializing 
+2014-10-13 16:03:06,126 INFO Current Request  JP.1.104
+2014-10-13 16:03:06,127 INFO Depositing for accountno = 21 balance = 3
+2014-10-13 16:03:06,148 INFO Account was not there.. So initializing 
+2014-10-13 16:03:06,150 INFO Current Request  JP.1.105
+2014-10-13 16:03:06,150 INFO Depositing for accountno = 9 balance = 13

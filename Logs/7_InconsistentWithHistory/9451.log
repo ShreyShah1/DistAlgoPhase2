@@ -1,0 +1,15 @@
+2014-10-13 12:53:35,350 INFO Log File for Server for bank JP
+2014-10-13 12:53:35,358 INFO Tail Server
+2014-10-13 12:53:35,444 INFO Account was not there.. So initializing 
+2014-10-13 12:53:35,445 INFO Current Request  JP.1.1
+2014-10-13 12:53:35,446 INFO Depositing for accountno = 1 balance = 250
+2014-10-13 12:53:35,450 INFO Sending Reply for update operation
+2014-10-13 12:53:35,469 INFO Current Request  JP.1.2
+2014-10-13 12:53:35,470 INFO Withdrawing for accountno = 1 balance = 150
+2014-10-13 12:53:35,473 INFO Sending Reply for update operation
+2014-10-13 12:53:35,487 INFO Current Request  JP.1.3
+2014-10-13 12:53:35,487 INFO Insufficient Funds for request_Id JP.1.3
+2014-10-13 12:53:35,489 INFO Sending Reply for update operation
+2014-10-13 12:53:35,498 INFO Current Request  JP.1.1
+2014-10-13 12:53:35,499 INFO Inconsistent with history JP.1.1
+2014-10-13 12:53:35,500 INFO Sending Reply for update operation

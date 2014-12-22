@@ -1,0 +1,15 @@
+2014-10-13 13:27:15,491 INFO Log File for client no 1
+2014-10-13 13:27:15,493 INFO Sending Request Packet JP 1 Deposit 250 1
+2014-10-13 13:27:15,493 INFO Sending Update request to head
+2014-10-13 13:27:16,496 WARNING Timeout happened for JP.1.1 so resending the request
+2014-10-13 13:27:17,497 WARNING Timeout happened for JP.1.1 so resending the request
+2014-10-13 13:27:18,500 WARNING Timeout happened for JP.1.1 so resending the request
+2014-10-13 13:27:19,502 WARNING Timeout happened for JP.1.1 so resending the request
+2014-10-13 13:27:20,504 WARNING Timeout happened for JP.1.1 so resending the request
+2014-10-13 13:27:20,504 INFO Sending Request Packet JP 1 Withdraw 150 2
+2014-10-13 13:27:20,504 INFO Sending Update request to head
+2014-10-13 13:27:21,506 WARNING Timeout happened for JP.1.2 so resending the request
+2014-10-13 13:27:22,507 WARNING Timeout happened for JP.1.2 so resending the request
+2014-10-13 13:27:23,509 WARNING Timeout happened for JP.1.2 so resending the request
+2014-10-13 13:27:24,512 WARNING Timeout happened for JP.1.2 so resending the request
+2014-10-13 13:27:25,514 WARNING Timeout happened for JP.1.2 so resending the request

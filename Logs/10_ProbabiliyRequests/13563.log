@@ -1,0 +1,16 @@
+2014-10-13 16:03:06,031 INFO Log File for client no 1
+2014-10-13 16:03:06,036 INFO Sending Request Packet JP 87 Withdraw 99 101
+2014-10-13 16:03:06,045 INFO Sending Update request to head
+2014-10-13 16:03:06,082 INFO Received Response  Request = JP.1.101 Account No = 87 Outcome = Insufficient Funds New_Balance = 0
+2014-10-13 16:03:06,083 INFO Sending Request Packet JP 19 Withdraw 34 102
+2014-10-13 16:03:06,084 INFO Sending Update request to head
+2014-10-13 16:03:06,102 INFO Received Response  Request = JP.1.102 Account No = 19 Outcome = Insufficient Funds New_Balance = 0
+2014-10-13 16:03:06,103 INFO Sending Request Packet JP 12 Withdraw 42 103
+2014-10-13 16:03:06,103 INFO Sending Update request to head
+2014-10-13 16:03:06,122 INFO Received Response  Request = JP.1.103 Account No = 12 Outcome = Insufficient Funds New_Balance = 0
+2014-10-13 16:03:06,123 INFO Sending Request Packet JP 21 Deposit 3 104
+2014-10-13 16:03:06,123 INFO Sending Update request to head
+2014-10-13 16:03:06,134 INFO Received Response  Request = JP.1.104 Account No = 21 Outcome = Processed New_Balance = 3
+2014-10-13 16:03:06,138 INFO Sending Request Packet JP 9 Deposit 13 105
+2014-10-13 16:03:06,139 INFO Sending Update request to head
+2014-10-13 16:03:06,157 INFO Received Response  Request = JP.1.105 Account No = 9 Outcome = Processed New_Balance = 13

@@ -1,0 +1,9 @@
+2014-10-13 12:52:10,905 INFO Log File for Server for bank JP
+2014-10-13 12:52:10,907 INFO Middle Server
+2014-10-13 12:52:10,931 INFO Account was not there.. So initializing 
+2014-10-13 12:52:10,935 INFO Current Request  JP.1.1
+2014-10-13 12:52:10,935 INFO Depositing for accountno = 1 balance = 250
+2014-10-13 12:52:10,957 INFO Current Request  JP.1.2
+2014-10-13 12:52:10,957 INFO Withdrawing for accountno = 1 balance = 150
+2014-10-13 12:52:10,967 INFO Current Request  JP.1.3
+2014-10-13 12:52:10,969 INFO Insufficient Funds for request_Id JP.1.3

@@ -1,0 +1,15 @@
+2014-10-13 12:54:12,091 INFO Log File for Server for bank JP
+2014-10-13 12:54:12,091 INFO Tail Server
+2014-10-13 12:54:12,104 INFO Account was not there.. So initializing 
+2014-10-13 12:54:12,105 INFO Current Request  JP.1.1
+2014-10-13 12:54:12,105 INFO Depositing for accountno = 1 balance = 250
+2014-10-13 12:54:12,108 INFO Sending Reply for update operation
+2014-10-13 12:54:12,137 INFO Current Request  JP.1.2
+2014-10-13 12:54:12,138 INFO Withdrawing for accountno = 1 balance = 150
+2014-10-13 12:54:12,138 INFO Sending Reply for update operation
+2014-10-13 12:54:12,144 INFO Current Request  JP.1.3
+2014-10-13 12:54:12,144 INFO Insufficient Funds for request_Id JP.1.3
+2014-10-13 12:54:12,145 INFO Sending Reply for update operation
+2014-10-13 12:54:12,149 INFO Current Request  JP.1.1
+2014-10-13 12:54:12,150 INFO Request Already there JP.1.1 So sending the previous reply 
+2014-10-13 12:54:12,150 INFO Sending Reply for update operation

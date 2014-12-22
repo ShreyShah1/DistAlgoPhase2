@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data>
+    <bank name="JP">
+        <server_num>3</server_num>
+    </bank>
+
+     <bank name="Morgan">
+        <server_num>2</server_num>
+    </bank>
+
+<!--  Operations codes   Withdraw = 0  ,  Deposit = 1  Query = 2  -->
+    <client number="1">
+         <access_bank name="JP"   accountno="1"  />
+         <request_packet name="JP" sequence_no="1" operation_Type="1" accountno="1" amount="250" />
+         <request_packet name="JP" sequence_no="2" operation_Type="0" accountno="1" amount="150" />
+         <request_packet name="JP" sequence_no="3" operation_Type="0" accountno="1" amount="5000" />
+
+    </client>
+    <timeout>1</timeout>
+    <retry>5</retry>
+
+
+</data>

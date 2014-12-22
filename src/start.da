@@ -1,0 +1,94 @@
+import sys
+from scirpt import Config
+import os
+import logging
+
+from Server import Server
+from Client import Client
+
+
+
+
+
+def main():
+
+######          INITIALIZE LOGGER                    ############
+    logger = logging.getLogger(str(os.getpid()))
+    hdlr = logging.FileHandler(str(os.getpid()) + '.log')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    hdlr.setFormatter(formatter)
+    logger.addHandler(hdlr)
+    logger.setLevel(logging.INFO)
+
+######          INITIALIZE LOGGER                    ############
+
+
+#########  Configuration Code   #############################
+
+    i = 0
+    config(channel="fifo")
+    file_name = sys.argv[1]
+
+    config_parameter = Config(file_name)
+    total_number_of_banks = config_parameter.bank_count
+    total_number_of_client= config_parameter.client_count
+    client_access_details=  config_parameter.client_access_details
+    request_packet       =  config_parameter.request_packet
+    no_of_servers        =  config_parameter.no_of_servers
+    timeout              =  config_parameter.timeout
+    retry                =  config_parameter.retry
+
+
+#########  Configuration Code   #############################
+
+############           FOR SERVER                #############
+    head_tail_details = dict()
+    ps_server_list    = list()
+    logger.info("Total number of Banks " + str(total_number_of_banks))
+    for key,value in no_of_servers.items():
+
+        logger.info("Initializing for bank " + str(key))
+        logger.info("The number of servers "+ str(value))
+        ps_server = new(Server , num = value)
+
+
+        ps_list = list(ps_server)
+        print(len(ps_list))
+        ps_server_list.extend(ps_list)
+
+        value = {'Head':'' , 'Tail': ''}
+        head_tail_details[key] = value
+
+        for j in range(len(ps_list)):
+            if(j == 0):
+
+ #               logger.info("Initializing Head ")
+                setup(ps_list[j],[None,ps_list[j+1],key])
+                head_tail_details[key]['Head'] = ps_list[j]               ###  Storing Heads in Temporary Location
+
+            elif(j == len(ps_list) - 1):
+  #              logger.info("Initializing the Tail")
+                setup(ps_list[j],[ps_list[j-1],None,key])
+                head_tail_details[key]['Tail'] = ps_list[j]               ###  Storing Tails in Temporary Location
+            else:
+   #             logger.info("Initializing the Middle server")
+                setup(ps_list[j],[ps_list[j-1],ps_list[j+1],key])
+
+############           FOR SERVER                #############
+
+############                 FOR CLIENT                  #############3
+
+    ps_client = new(Client, num = total_number_of_client)
+    logger.info("Total Number of client " + str(total_number_of_client))
+    ps_client_list = list(ps_client)
+
+    for key,value in client_access_details.items():
+        details = value
+        setup(ps_client_list[i],[int(key),head_tail_details,details,request_packet,timeout,retry])
+        i = i + 1
+
+#############               FOR CLIENT                  #############
+
+
+    start(ps_client)
+    start(ps_server_list)

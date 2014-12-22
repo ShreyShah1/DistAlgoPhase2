@@ -1,0 +1,152 @@
+import sys
+import os
+import logging
+
+from datatypes import Request
+from datatypes import Reply
+
+#########                           SERVER CLASS                         ############
+
+class Server(process):
+    def setup(predeccesor,succesor,bank_name):
+         self.AllInfo    = dict()
+         self.logger     = None
+         self.Transaction_Processed = dict()
+         self.bank_name   = bank_name
+
+
+
+    def main():
+
+        InitializeLogger(str(os.getpid()));
+        logger.info("Log File for Server for bank " + bank_name)
+        log_head_tail()
+
+        await(some(received(('SERVER_NEVER_TERMINATE',_))))
+
+    def recv(msg=('Request',parameter,req), from_=client):
+
+        rep = process_request(req)                                   #### Processing the request
+
+        if(predeccesor == None):
+            parameter = client
+
+        if(succesor == None):
+
+            if(req.operationType == 2):                      ### Query then send back to the tail
+                logger.info("Sending Reply for query operation")
+                send(('Response',rep), to=client)                  ### change
+            else:
+                logger.info("Sending Reply for update operation")
+                send(('Response',rep), to=parameter)
+
+        else:
+   #         logger.info("Sending Request to the successor")
+            send(('Request',parameter,req), to=succesor)
+            output("Ponging to server")
+
+
+    def create_and_initialize_account(account_no , initial_balance , bank_name):
+
+        Account = {'balance':initial_balance ,'bank_name':bank_name}
+        AllInfo[account_no] = Account
+
+    def withdraw(account_no , balance):
+        account = AllInfo[account_no]
+
+        if(account['balance'] < balance ):
+            print("In sufficient balance for account_no = ",account_no)
+            return 0                                                               ###  Insufficient Balance
+        logger.info("Withdrawing for accountno = " + str(account_no) + " balance = " + str(balance))
+        account['balance'] = account['balance'] - balance
+        return 1
+
+    def deposit(account_no , amount):
+        logger.info("Depositing for accountno = " + str(account_no) + " balance = " + str(amount))
+        account = AllInfo[account_no]
+        account['balance'] = account['balance'] + amount
+        return account['balance']
+
+    def query(account_no):
+        logger.info("Querying for accountno = " + str(account_no) )
+        account = AllInfo[account_no]
+        return account['balance']
+
+    def get_balance(account_no):
+        account = AllInfo[account_no]
+        return account['balance']
+
+    def log_head_tail():
+        if(predeccesor == None):
+            logger.info("Head Server")
+        elif (succesor == None):
+            logger.info("Tail Server")
+        else:
+            logger.info("Middle Server")
+
+    def process_request(request):
+
+####     Check whether the account number is already there if not then add      #####
+
+        if(AllInfo.get(request.accountNo) == None):
+            logger.info("Account was not there.. So initializing ")
+            create_and_initialize_account(request.accountNo,0,request.bank_name)
+
+        logger.info("Current Request  "+request.request_id )
+
+        if request.request_id in Transaction_Processed:
+            if (request.accountNo == Transaction_Processed[request.request_id]['account_no']
+                   and request.operationType == Transaction_Processed[request.request_id]['operation_Type']
+                   and  request.amount == Transaction_Processed[request.request_id]['amount'])  :            #### Checking whether parameters are same or not
+
+
+                logger.info("Request Already there "+ str(request.request_id) +" So sending the previous reply ")
+                res = Transaction_Processed[request.request_id]['Reply']
+                return res
+            else:                                                                                             #### If not same that means its inconsistent with history
+                logger.info("Inconsistent with history "+ str(request.request_id))
+                return Reply(request.request_id,1, request.amount,request.accountNo)
+
+
+####   HANDLED DUPLICATE REQEUSTS HERE  INCONSISTENT WITH HISTORY  #####
+
+        if(request.operationType == 0):
+            ret = withdraw(request.accountNo ,request.amount)      ### Withdraw
+            new_balance = get_balance(request.accountNo)
+            if(ret == 1):
+                                                                 ### Storing in the History
+                res=Reply(request.request_id,0, new_balance,request.accountNo)
+                Transaction_Processed[request.request_id] = {'Reply':res ,'account_no':request.accountNo , 'operation_Type':request.operationType,'amount':request.amount}
+                return res
+            else:
+                logger.info("Insufficient Funds for request_Id "+ str(request.request_id))
+                res=Reply(request.request_id,2, new_balance,request.accountNo)                                          ### 2 Insufficient funds
+                return res
+
+        elif(request.operationType == 1):                        ###  Deposit
+
+            new_balance = deposit(request.accountNo,request.amount)
+                                                                                                     ### Storing in the History
+            res=Reply(request.request_id,0 , new_balance,request.accountNo)
+            Transaction_Processed[request.request_id] = {'Reply':res ,'account_no':request.accountNo , 'operation_Type':request.operationType,'amount':request.amount}
+            return res
+
+        elif(request.operationType == 2):                       ### Query
+            actual_balance = query(request.accountNo)
+            res=Reply(request.request_id,0 , actual_balance,request.accountNo)
+            return res
+
+        else:                                                   ### Neither of the requests
+            return None                                         ### Output Null should drop the packet
+
+    def InitializeLogger(Name):
+
+        logger = logging.getLogger(Name)
+        hdlr = logging.FileHandler(Name + '.log')
+        formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        hdlr.setFormatter(formatter)
+        logger.addHandler(hdlr)
+        logger.setLevel(logging.INFO)
+
+#########                           SERVER CLASS                           ############
+
