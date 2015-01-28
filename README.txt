@@ -15,7 +15,3 @@ MAIN FILES :
     All the main files are in the src folder .
 
 
-
-CONTRIBUTIONS:
-       
-       The distAlgo code was handled by Shrey Shah whereas the Java code was handled by Aadarsh Kenia although we disuccussed everything as when doubts came to us with each other. 
